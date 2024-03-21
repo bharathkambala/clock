@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="clock.css">
+</head>
+<body class="body">
+    <div class="circle">
+        <div class="numbers">
+            <div class="one item">1</div>
+            <div class="two item">2</div>
+            <div class="three item">3</div>
+            <div class="four item">4</div>
+            <div class="five item">5</div>
+            <div class="six item">6</div>
+            <div class="seven item">7</div>
+            <div class="eight item">8</div>
+            <div class="nine item">9</div>
+            <div class="ten item">10</div>
+            <div class="eleven item">11</div>
+            <div class="twelve item">12</div>
+        </div>
+        <div class="hourStick" id="hour">
+            <div class="hourStick1"></div>
+        </div>
+        <div class="minuteStick" id="min">
+            <div class="minuteStick1"></div>
+        </div>
+        <div class="secondStick" id="sec">
+            <div class="secondStick1"></div>
+        </div>
+        <div class="centerDot"></div>
+    </div>
+    <script>
+        let hour = document.getElementById('hour')
+        let min = document.getElementById('min')
+        let sec = document.getElementById('sec')
+
+        setInterval(function(){
+            let date = new Date();
+            let dateM = (360/60)*date.getMinutes();
+            let dateH = (0.5)*(Math.abs(date.getHours())*60+date.getMinutes());
+            let dateS = (360/60)*date.getSeconds();
+
+            hour.style.transform = `rotate(${dateH}deg)`
+            min.style.transform = `rotate(${dateM}deg)`
+            sec.style.transform = `rotate(${dateS}deg)`
+            
+        },1000)
+    </script>
+</body>
+</html>
